@@ -1,2 +1,3 @@
-# mt-entities-abstractions
-Абстракции сущностей используемых в МТ.
+# Mt Entities abstractions
+
+Абстракции сущностей используемых в Мt Rele.
