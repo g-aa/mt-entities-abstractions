@@ -1,35 +1,34 @@
-using Mt.Entities.Abstractions.Extensions;
+п»їusing Mt.Entities.Abstractions.Extensions;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace Mt.Entities.Abstractions.Test
 {
     /// <summary>
-    /// Набор тестов для расширений класса Enumerable.
+    /// РќР°Р±РѕСЂ С‚РµСЃС‚РѕРІ РґР»СЏ СЂР°СЃС€РёСЂРµРЅРёР№ РєР»Р°СЃСЃР° Queryable.
     /// </summary>
-    public sealed class EnumerableExtensionsTests
+    public sealed class QueryableExtensionsTests
     {
-        private IEnumerable<TestEntity> entitySeq;
+        private IQueryable<TestEntity> entitySeq;
 
-        private IEnumerable<TestEntity> entitySeqNull;
+        private IQueryable<TestEntity> entitySeqNull;
 
-        private IEnumerable<TestEntity> entitySeqEmpty;
+        private IQueryable<TestEntity> entitySeqEmpty;
 
-        private IEnumerable<TestEntity> entitySeqDefault;
+        private IQueryable<TestEntity> entitySeqDefault;
 
-        private IEnumerable<TestEntity> entitySeqDefaultMany;
+        private IQueryable<TestEntity> entitySeqDefaultMany;
 
         /// <summary>
-        /// Настройки.
+        /// РќР°СЃС‚СЂРѕР№РєРё.
         /// </summary>
         [OneTimeSetUp]
         public void SetUp()
         {
             this.entitySeqNull = null;
-            
-            this.entitySeqEmpty = Array.Empty<TestEntity>();
+
+            this.entitySeqEmpty = Array.Empty<TestEntity>().AsQueryable();
 
             this.entitySeq = new TestEntity[]
             {
@@ -38,7 +37,7 @@ namespace Mt.Entities.Abstractions.Test
                 new TestEntity() { Id = Guid.Parse("71D69566-C5C8-4B56-8268-BAC368F98CF4"), Title = "Entity 2" },
                 new TestEntity() { Id = Guid.Parse("E342C5E4-66A6-4105-A050-DA0DF10D8200"), Title = "Entity 3" },
                 new TestEntity() { Id = Guid.Parse("F29AB748-08DF-4CA0-92B3-666A7A7C88E2"), Title = "Entity 4" },
-            };
+            }.AsQueryable();
 
             this.entitySeqDefault = new TestEntity[]
             {
@@ -46,7 +45,7 @@ namespace Mt.Entities.Abstractions.Test
                 new TestEntity() { Id = Guid.Parse("36D5AF43-9EA8-45EF-8A77-A484439CE20C"), Title = "Default 1", Default = true },
                 new TestEntity() { Id = Guid.Parse("4C11E861-8E9B-48BD-A029-46D8320142D7"), Title = "Entity 7" },
                 new TestEntity() { Id = Guid.Parse("58F891F7-52A5-4AEC-9A3A-AD36621A14AF"), Title = "Entity 9" },
-            };
+            }.AsQueryable();
 
             this.entitySeqDefaultMany = new TestEntity[]
             {
@@ -55,15 +54,15 @@ namespace Mt.Entities.Abstractions.Test
                 new TestEntity() { Id = Guid.Parse("4C11E861-8E9B-48BD-A029-46D8320142D7"), Title = "Entity 7" },
                 new TestEntity() { Id = Guid.Parse("F3DD228E-F266-4251-87D0-3F433A8384E9"), Title = "Default 2", Default = true },
                 new TestEntity() { Id = Guid.Parse("58F891F7-52A5-4AEC-9A3A-AD36621A14AF"), Title = "Entity 9" },
-            };
+            }.AsQueryable();
         }
 
         /// <summary>
-        /// Положительные тесты для метода <see cref="EnumerableExtensions.Search"/>.
+        /// РџРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рµ С‚РµСЃС‚С‹ РґР»СЏ РјРµС‚РѕРґР° <see cref="QueryableExtensions.Search"/>.
         /// </summary>
-        /// <param name="seq">Наименование последовательности.</param>
+        /// <param name="seq">РќР°РёРјРµРЅРѕРІР°РЅРёРµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё.</param>
         /// <param name="guid">UUID.</param>
-        /// <param name="expected">Ожидаемый результат.</param>
+        /// <param name="expected">РћР¶РёРґР°РµРјС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚.</param>
         [Test]
         [TestCase(nameof(entitySeq),            "C5BBF5EB-38FD-4394-A0A5-24912BCC5A63", "Entity 0")]
         [TestCase(nameof(entitySeqDefaultMany), "4C11E861-8E9B-48BD-A029-46D8320142D7", "Entity 7")]
@@ -74,13 +73,13 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Отрицательные тесты для метода <see cref="EnumerableExtensions.Search"/>.
+        /// РћС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рµ С‚РµСЃС‚С‹ РґР»СЏ РјРµС‚РѕРґР° <see cref="QueryableExtensions.Search"/>.
         /// </summary>
-        /// <param name="seq">Наименование последовательности.</param>
+        /// <param name="seq">РќР°РёРјРµРЅРѕРІР°РЅРёРµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё.</param>
         /// <param name="guid">UUID.</param>
-        /// <param name="expected">Ожидаемый результат.</param>
+        /// <param name="expected">РћР¶РёРґР°РµРјС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚.</param>
         [Test]
-        [TestCase(nameof(entitySeqNull),        "00000000-0000-0000-0000-000000000000", "Checked parameter is null. (Parameter 'enumerable')")]
+        [TestCase(nameof(entitySeqNull),        "00000000-0000-0000-0000-000000000000", "Checked parameter is null. (Parameter 'queryable')")]
         [TestCase(nameof(entitySeqEmpty),       "00000000-0000-0000-0000-000000000000", "MT-E0003: Entity not found in sequence. ('Mt.Entities.Abstractions.Test.TestEntity'; ID = '00000000-0000-0000-0000-000000000000')")]
         [TestCase(nameof(entitySeq),            "00000000-0000-0000-0000-000000000000", "MT-E0003: Entity not found in sequence. ('Mt.Entities.Abstractions.Test.TestEntity'; ID = '00000000-0000-0000-0000-000000000000')")]
         [TestCase(nameof(entitySeqDefaultMany), "00000000-0000-0000-0000-000000000000", "MT-E0003: Entity not found in sequence. ('Mt.Entities.Abstractions.Test.TestEntity'; ID = '00000000-0000-0000-0000-000000000000')")]
@@ -91,12 +90,12 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Положительные тесты для метода <see cref="EnumerableExtensions.Search"/>.
+        /// РџРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рµ С‚РµСЃС‚С‹ РґР»СЏ РјРµС‚РѕРґР° <see cref="QueryableExtensions.Search"/>.
         /// </summary>
-        /// <param name="seq">Наименование последовательности.</param>
+        /// <param name="seq">РќР°РёРјРµРЅРѕРІР°РЅРёРµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё.</param>
         /// <param name="guid">UUID.</param>
-        /// <param name="title">Заголовок.</param>
-        /// <param name="expected">Ожидаемый результат.</param>
+        /// <param name="title">Р—Р°РіРѕР»РѕРІРѕРє.</param>
+        /// <param name="expected">РћР¶РёРґР°РµРјС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚.</param>
         [Test]
         [TestCase(nameof(entitySeq),            "C5BBF5EB-38FD-4394-A0A5-24912BCC5A63", "Entity 0", "Entity 0")]
         [TestCase(nameof(entitySeqDefaultMany), "4C11E861-8E9B-48BD-A029-46D8320142D7", "Entity 7", "Entity 7")]
@@ -112,14 +111,14 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Отрицательные тесты для метода <see cref="EnumerableExtensions.Search"/>.
+        /// РћС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рµ С‚РµСЃС‚С‹ РґР»СЏ РјРµС‚РѕРґР° <see cref="QueryableExtensions.Search"/>.
         /// </summary>
-        /// <param name="seq">Наименование последовательности.</param>
+        /// <param name="seq">РќР°РёРјРµРЅРѕРІР°РЅРёРµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё.</param>
         /// <param name="guid">UUID.</param>
-        /// <param name="title">Заголовок.</param>
-        /// <param name="expected">Ожидаемый результат.</param>
+        /// <param name="title">Р—Р°РіРѕР»РѕРІРѕРє.</param>
+        /// <param name="expected">РћР¶РёРґР°РµРјС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚.</param>
         [Test]
-        [TestCase(nameof(entitySeqNull),        "00000000-0000-0000-0000-000000000000", "Entity", "Checked parameter is null. (Parameter 'enumerable')")]
+        [TestCase(nameof(entitySeqNull),        "00000000-0000-0000-0000-000000000000", "Entity", "Checked parameter is null. (Parameter 'queryable')")]
         [TestCase(nameof(entitySeqEmpty),       "00000000-0000-0000-0000-000000000000", "Entity", "MT-E0003: Entity not found in sequence. ('ID = 00000000-0000-0000-0000-000000000000; title = Entity')")]
         [TestCase(nameof(entitySeq),            "00000000-0000-0000-0000-000000000000", "Entity", "MT-E0003: Entity not found in sequence. ('ID = 00000000-0000-0000-0000-000000000000; title = Entity')")]
         [TestCase(nameof(entitySeqDefaultMany), "00000000-0000-0000-0000-000000000000", "Entity", "MT-E0003: Entity not found in sequence. ('ID = 00000000-0000-0000-0000-000000000000; title = Entity')")]
@@ -135,11 +134,11 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Положительные тесты для метода <see cref="EnumerableExtensions.SearchOrDefault"/>.
+        /// РџРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рµ С‚РµСЃС‚С‹ РґР»СЏ РјРµС‚РѕРґР° <see cref="QueryableExtensions.SearchOrDefault"/>.
         /// </summary>
-        /// <param name="seq">Наименование последовательности.</param>
+        /// <param name="seq">РќР°РёРјРµРЅРѕРІР°РЅРёРµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё.</param>
         /// <param name="guid">UUID.</param>
-        /// <param name="expected">Ожидаемый результат.</param>
+        /// <param name="expected">РћР¶РёРґР°РµРјС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚.</param>
         [Test]
         [TestCase(nameof(entitySeqDefault),     "4C11E861-8E9B-48BD-A029-46D8320142D7", "Entity 7")]
         [TestCase(nameof(entitySeqDefaultMany), "4C11E861-8E9B-48BD-A029-46D8320142D7", "Entity 7")]
@@ -151,13 +150,13 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Отрицательные тесты для метода <see cref="EnumerableExtensions.SearchOrDefault"/>.
+        /// РћС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рµ С‚РµСЃС‚С‹ РґР»СЏ РјРµС‚РѕРґР° <see cref="QueryableExtensions.SearchOrDefault"/>.
         /// </summary>
-        /// <param name="seq">Наименование последовательности.</param>
+        /// <param name="seq">РќР°РёРјРµРЅРѕРІР°РЅРёРµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё.</param>
         /// <param name="guid">UUID.</param>
-        /// <param name="expected">Ожидаемый результат.</param>
+        /// <param name="expected">РћР¶РёРґР°РµРјС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚.</param>
         [Test]
-        [TestCase(nameof(entitySeqNull),        "00000000-0000-0000-0000-000000000000", "Checked parameter is null. (Parameter 'enumerable')")]
+        [TestCase(nameof(entitySeqNull),        "00000000-0000-0000-0000-000000000000", "Checked parameter is null. (Parameter 'queryable')")]
         [TestCase(nameof(entitySeqDefaultMany), "00000000-0000-0000-0000-000000000000", "Sequence contains more than one matching element")]
         [TestCase(nameof(entitySeqEmpty),       "00000000-0000-0000-0000-000000000000", "MT-E0003: Entity or default value not found in sequence. ('Mt.Entities.Abstractions.Test.TestEntity'; ID = '00000000-0000-0000-0000-000000000000')")]
         [TestCase(nameof(entitySeq),            "00000000-0000-0000-0000-000000000000", "MT-E0003: Entity or default value not found in sequence. ('Mt.Entities.Abstractions.Test.TestEntity'; ID = '00000000-0000-0000-0000-000000000000')")]
@@ -168,16 +167,16 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Положительные тесты для метода <see cref="EnumerableExtensions.SearchOrDefault"/>.
+        /// РџРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рµ С‚РµСЃС‚С‹ РґР»СЏ РјРµС‚РѕРґР° <see cref="QueryableExtensions.SearchOrDefault"/>.
         /// </summary>
-        /// <param name="seq">Наименование последовательности.</param>
+        /// <param name="seq">РќР°РёРјРµРЅРѕРІР°РЅРёРµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё.</param>
         /// <param name="guid">UUID.</param>
-        /// <param name="title">Заголовок.</param>
-        /// <param name="expected">Ожидаемый результат.</param>
+        /// <param name="title">Р—Р°РіРѕР»РѕРІРѕРє.</param>
+        /// <param name="expected">РћР¶РёРґР°РµРјС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚.</param>
         [Test]
         [TestCase(nameof(entitySeqDefault),     "4C11E861-8E9B-48BD-A029-46D8320142D7", "Entity 7", "Entity 7")]
         [TestCase(nameof(entitySeqDefaultMany), "4C11E861-8E9B-48BD-A029-46D8320142D7", "Entity 7", "Entity 7")]
-        [TestCase(nameof(entitySeqDefault),     "00000000-0000-0000-0000-000000000000", "Entity",   "Default 1")]
+        [TestCase(nameof(entitySeqDefault),     "00000000-0000-0000-0000-000000000000", "Entity", "Default 1")]
         public void SearchOrDefaultByEntityPositiveTest(string seq, Guid guid, string title, string expected)
         {
             var entity = new TestEntity()
@@ -190,14 +189,14 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Отрицательные тесты для метода <see cref="EnumerableExtensions.SearchOrDefault"/>.
+        /// РћС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рµ С‚РµСЃС‚С‹ РґР»СЏ РјРµС‚РѕРґР° <see cref="QueryableExtensions.SearchOrDefault"/>.
         /// </summary>
-        /// <param name="seq">Наименование последовательности.</param>
+        /// <param name="seq">РќР°РёРјРµРЅРѕРІР°РЅРёРµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё.</param>
         /// <param name="guid">UUID.</param>
-        /// <param name="title">Заголовок.</param>
-        /// <param name="expected">Ожидаемый результат.</param>
+        /// <param name="title">Р—Р°РіРѕР»РѕРІРѕРє.</param>
+        /// <param name="expected">РћР¶РёРґР°РµРјС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚.</param>
         [Test]
-        [TestCase(nameof(entitySeqNull),        "00000000-0000-0000-0000-000000000000", "Entity", "Checked parameter is null. (Parameter 'enumerable')")]
+        [TestCase(nameof(entitySeqNull),        "00000000-0000-0000-0000-000000000000", "Entity", "Checked parameter is null. (Parameter 'queryable')")]
         [TestCase(nameof(entitySeqDefaultMany), "00000000-0000-0000-0000-000000000000", "Entity", "Sequence contains more than one matching element")]
         [TestCase(nameof(entitySeqEmpty),       "00000000-0000-0000-0000-000000000000", "Entity", "MT-E0003: Entity or default value not found in sequence. ('ID = 00000000-0000-0000-0000-000000000000; title = Entity')")]
         [TestCase(nameof(entitySeq),            "00000000-0000-0000-0000-000000000000", "Entity", "MT-E0003: Entity or default value not found in sequence. ('ID = 00000000-0000-0000-0000-000000000000; title = Entity')")]
@@ -213,11 +212,11 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Положительные тесты для метода <see cref="EnumerableExtensions.SearchOrNull"/>.
+        /// РџРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рµ С‚РµСЃС‚С‹ РґР»СЏ РјРµС‚РѕРґР° <see cref="QueryableExtensions.SearchOrNull"/>.
         /// </summary>
-        /// <param name="seq">Наименование последовательности.</param>
+        /// <param name="seq">РќР°РёРјРµРЅРѕРІР°РЅРёРµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё.</param>
         /// <param name="guid">UUID.</param>
-        /// <param name="expected">Ожидаемый результат.</param>
+        /// <param name="expected">РћР¶РёРґР°РµРјС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚.</param>
         [Test]
         [TestCase(nameof(entitySeq),        "C5BBF5EB-38FD-4394-A0A5-24912BCC5A63", "Entity 0")]
         [TestCase(nameof(entitySeq),        "00000000-0000-0000-0000-000000000000", null)]
@@ -229,13 +228,13 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Отрицательные тесты для метода <see cref="EnumerableExtensions.SearchOrNull"/>.
+        /// РћС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рµ С‚РµСЃС‚С‹ РґР»СЏ РјРµС‚РѕРґР° <see cref="QueryableExtensions.SearchOrNull"/>.
         /// </summary>
-        /// <param name="seq">Наименование последовательности.</param>
+        /// <param name="seq">РќР°РёРјРµРЅРѕРІР°РЅРёРµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё.</param>
         /// <param name="guid">UUID.</param>
-        /// <param name="expected">Ожидаемый результат.</param>
+        /// <param name="expected">РћР¶РёРґР°РµРјС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚.</param>
         [Test]
-        [TestCase(nameof(entitySeqNull), "C5BBF5EB-38FD-4394-A0A5-24912BCC5A63", "Checked parameter is null. (Parameter 'enumerable')")]
+        [TestCase(nameof(entitySeqNull),    "C5BBF5EB-38FD-4394-A0A5-24912BCC5A63", "Checked parameter is null. (Parameter 'queryable')")]
         public void SearchOrNullByIdNegotiveTest(string seq, Guid guid, string expected)
         {
             var ex = Assert.Catch(() => this.GetEnumerable(seq).SearchOrNull(guid));
@@ -243,12 +242,12 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Положительные тесты для метода <see cref="EnumerableExtensions.IsContained"/>.
+        /// РџРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рµ С‚РµСЃС‚С‹ РґР»СЏ РјРµС‚РѕРґР° <see cref="QueryableExtensions.IsContained"/>.
         /// </summary>
-        /// <param name="seq">Наименование последовательности.</param>
+        /// <param name="seq">РќР°РёРјРµРЅРѕРІР°РЅРёРµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё.</param>
         /// <param name="guid">UUID.</param>
-        /// <param name="title">Заголовок.</param>
-        /// <param name="expected">Ожидаемый результат.</param>
+        /// <param name="title">Р—Р°РіРѕР»РѕРІРѕРє.</param>
+        /// <param name="expected">РћР¶РёРґР°РµРјС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚.</param>
         [Test]
         [TestCase(nameof(entitySeq),        "F354633E-2744-4F73-9B44-5D1D401283D7", "Entity 1", true)]
         [TestCase(nameof(entitySeq),        "00000000-0000-0000-0000-000000000000", "Entity", false)]
@@ -265,14 +264,14 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Отрицательные тесты для метода <see cref="EnumerableExtensions.IsContained"/>.
+        /// РћС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рµ С‚РµСЃС‚С‹ РґР»СЏ РјРµС‚РѕРґР° <see cref="QueryableExtensions.IsContained"/>.
         /// </summary>
-        /// <param name="seq">Наименование последовательности.</param>
+        /// <param name="seq">РќР°РёРјРµРЅРѕРІР°РЅРёРµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё.</param>
         /// <param name="guid">UUID.</param>
-        /// <param name="title">Заголовок.</param>
-        /// <param name="expected">Ожидаемый результат.</param>
+        /// <param name="title">Р—Р°РіРѕР»РѕРІРѕРє.</param>
+        /// <param name="expected">РћР¶РёРґР°РµРјС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚.</param>
         [Test]
-        [TestCase(nameof(entitySeqNull), "C5BBF5EB-38FD-4394-A0A5-24912BCC5A63", "Entity", "Checked parameter is null. (Parameter 'enumerable')")]
+        [TestCase(nameof(entitySeqNull),    "C5BBF5EB-38FD-4394-A0A5-24912BCC5A63", "Entity", "Checked parameter is null. (Parameter 'queryable')")]
         public void IsContainedNegotiveTest(string seq, Guid guid, string title, string expected)
         {
             var entity = new TestEntity()
@@ -285,9 +284,9 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Положительные тесты для метода <see cref="EnumerableExtensions.SearchManyOrDefault"/>.
+        /// РџРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рµ С‚РµСЃС‚С‹ РґР»СЏ РјРµС‚РѕРґР° <see cref="QueryableExtensions.SearchManyOrDefault"/>.
         /// </summary>
-        /// <param name="seq">Наименование последовательности.</param>
+        /// <param name="seq">РќР°РёРјРµРЅРѕРІР°РЅРёРµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё.</param>
         /// <param name="objects">UUIDs.</param>
         [Test]
         [TestCase(nameof(entitySeq),            new object[] { "C5BBF5EB-38FD-4394-A0A5-24912BCC5A63", "E342C5E4-66A6-4105-A050-DA0DF10D8200" })]
@@ -301,12 +300,12 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Отрицательные тесты для метода <see cref="EnumerableExtensions.SearchManyOrDefault"/>.
+        /// РћС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рµ С‚РµСЃС‚С‹ РґР»СЏ РјРµС‚РѕРґР° <see cref="QueryableExtensions.SearchManyOrDefault"/>.
         /// </summary>
-        /// <param name="seq">Наименование последовательности.</param>
+        /// <param name="seq">РќР°РёРјРµРЅРѕРІР°РЅРёРµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё.</param>
         /// <param name="objects">UUIDs.</param>
         [Test]
-        [TestCase(nameof(entitySeqNull),    new object[] { "C5BBF5EB-38FD-4394-A0A5-24912BCC5A63", "E342C5E4-66A6-4105-A050-DA0DF10D8200" }, "Checked parameter is null. (Parameter 'enumerable')")]
+        [TestCase(nameof(entitySeqNull),    new object[] { "C5BBF5EB-38FD-4394-A0A5-24912BCC5A63", "E342C5E4-66A6-4105-A050-DA0DF10D8200" }, "Checked parameter is null. (Parameter 'queryable')")]
         [TestCase(nameof(entitySeq),        new object[] { "00000000-0000-0000-0000-000000000000", "11111111-1111-1111-1111-111111111111" }, "MT-E0003: The required entities not found in the sequence by keys. (IDs = '00000000-0000-0000-0000-000000000000, 11111111-1111-1111-1111-111111111111')")]
         public void SearchManyOrDefaultNegotiveTest(string seq, object[] objects, string expected)
         {
@@ -316,17 +315,17 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Получить последовательность для проведения тестов.
+        /// РџРѕР»СѓС‡РёС‚СЊ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ РґР»СЏ РїСЂРѕРІРµРґРµРЅРёСЏ С‚РµСЃС‚РѕРІ.
         /// </summary>
-        /// <param name="seqName">Наименование последовательности.</param>
+        /// <param name="seqName">РќР°РёРјРµРЅРѕРІР°РЅРёРµ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё.</param>
         /// <returns></returns>
-        private IEnumerable<TestEntity> GetEnumerable(string seqName)
+        private IQueryable<TestEntity> GetEnumerable(string seqName)
         {
             switch (seqName)
             {
                 case nameof(entitySeq):
                     return this.entitySeq;
-                
+
                 case nameof(entitySeqEmpty):
                     return this.entitySeqEmpty;
 
