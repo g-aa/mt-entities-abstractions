@@ -27,7 +27,7 @@ namespace Mt.Entities.Abstractions.Extensions
             var result = Check.NotNull(enumerable, nameof(enumerable)).SingleOrDefault(e => e.Id == guid);
             if (result is null)
             {
-                throw new MtException(ErrorCode.EntityNotFoundError, $"Сущность '{typeof(TEntity)}' с ID = '{guid}' не найдена в последовательности.");
+                throw new MtException(ErrorCode.EntityNotFoundError, $"Entity not found in sequence. ('{typeof(TEntity)}'; ID = '{guid}')");
             }
             return result;
         }
@@ -47,7 +47,7 @@ namespace Mt.Entities.Abstractions.Extensions
             var result = Check.NotNull(enumerable, nameof(enumerable)).SingleOrDefault(entity.GetEqualityPredicate().Compile());
             if (result is null)
             {
-                throw new MtException(ErrorCode.EntityNotFoundError, $"Сущность '{entity}' не найдена в последовательности.");
+                throw new MtException(ErrorCode.EntityNotFoundError, $"Entity not found in sequence. ('{entity}')");
             }
             return result;
         }
@@ -72,7 +72,7 @@ namespace Mt.Entities.Abstractions.Extensions
             result = enumerable.SingleOrDefault(e => e.Default);
             if (result is null)
             {
-                throw new MtException(ErrorCode.EntityNotFoundError, $"Сущность '{typeof(TEntity)}' с ID = '{guid}' или значение сущности по умолчанию не найдены в последовательности.");
+                throw new MtException(ErrorCode.EntityNotFoundError, $"Entity or default value not found in sequence. ('{typeof(TEntity)}'; ID = '{guid}')");
             }
             return result;
         }
@@ -97,7 +97,7 @@ namespace Mt.Entities.Abstractions.Extensions
             result = enumerable.SingleOrDefault(e => e.Default);
             if (result is null)
             {
-                throw new MtException(ErrorCode.EntityNotFoundError, $"Сущность '{typeof(TEntity)}' или значение сущности по умолчанию не найдены в последовательности.");
+                throw new MtException(ErrorCode.EntityNotFoundError, $"Entity or default value not found in sequence. ('{entity}')");
             }
             return result;
         }
@@ -134,9 +134,9 @@ namespace Mt.Entities.Abstractions.Extensions
                 return result;
             }
             result = enumerable.Where(e => e.Default);
-            if (result is null)
+            if (!result.Any())
             {
-                throw new MtException(ErrorCode.InvalidOperationError, $"Не удалось найти запрашиваемые обьекты в последовательности по следующим ключам: '{string.Join(", ", guids)}'.");
+                throw new MtException(ErrorCode.EntityNotFoundError, $"The required entities not found in the sequence by keys. (IDs = '{string.Join(", ", guids)}')");
             }
             return result;
         }
