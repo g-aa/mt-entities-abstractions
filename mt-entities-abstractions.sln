@@ -5,9 +5,11 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{B918AB22-1953-4D69-9109-08DD6BA69E93}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		.gitignore = .gitignore
-		iconNet.png = iconNet.png
+		CHANGELOG.md = CHANGELOG.md
 		iconMt.png = iconMt.png
+		iconNet.png = iconNet.png
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -32,10 +34,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{EDD20CBB-DB49-48AA-B757-4132AC318BD7} = {97730223-CA00-4A91-8832-3A6492648EF7}
-		{AE661001-A7F0-45A1-8EEE-3FFEE7D26C66} = {D5635261-0320-4109-A6EB-A918C1BDD78D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F77A572B-9C82-4156-85C5-5F10384B335F}
