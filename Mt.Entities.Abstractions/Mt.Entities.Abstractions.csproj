@@ -5,8 +5,9 @@
 		<PackageId>Mt.Entities.Abstractions</PackageId>
 		<PackageTags>Mt;Net;Entities;</PackageTags>
 		<Description>Абстракции сущностей используемые в проектах Mt Rele.</Description>
+		<AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)mt-entities-abstractions.snk</AssemblyOriginatorKeyFile>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<GenerateDocumentationFile>true</GenerateDocumentationFile>		
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>

@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{B918AB22-1
 		Directory.Build.props = Directory.Build.props
 		iconMt.png = iconMt.png
 		iconNet.png = iconNet.png
+		mt-entities-abstractions.snk = mt-entities-abstractions.snk
 		README.md = README.md
 	EndProjectSection
 EndProject
