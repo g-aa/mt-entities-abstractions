@@ -1,38 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	
+
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
-        <Nullable>enable</Nullable>
-	    <LangVersion>latest</LangVersion>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<Authors>Andrey G.</Authors>
-		<Description>Абстракции сущностей используемые в проектах Mt Rele.</Description>
-		<Copyright>Copyright Mt Rele 1993 – 2022.</Copyright>
-		<Company>Mt Rele</Company>
-		<RepositoryType>git</RepositoryType>
-		<RepositoryUrl>https://github.com/g-aa/mt-entities-abstractions</RepositoryUrl>
-		<NeutralLanguage>ru-RU</NeutralLanguage>
-		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<PackageIcon>iconMt.png</PackageIcon>
-		<PackageTags>Mt;Net;Entities;</PackageTags>
-		<PackageProjectUrl>https://github.com/g-aa/mt-entities-abstractions</PackageProjectUrl>
 		<PackageId>Mt.Entities.Abstractions</PackageId>
-		<Build_Version Condition=" '$(Build_Version)' == '' ">6.0.0</Build_Version>
-		<Build_Number Condition=" '$(Build_Number)' == '' ">$(Build_Version).0</Build_Number>
-		<Version>$(Build_Version)</Version>
-		<PackageVersion>$(Build_Version)</PackageVersion>
-		<FileVersion>$(Build_Number)</FileVersion>
-		<AssemblyVersion>$(Build_Number)</AssemblyVersion>
+		<PackageTags>Mt;Net;Entities;</PackageTags>
+		<Description>Абстракции сущностей используемые в проектах Mt Rele.</Description>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>		
 	</PropertyGroup>
-	
-    <ItemGroup>
-        <PackageReference Include="Mt.Utilities" Version="6.1.0" />
-        <PackageReference Include="SonarAnalyzer.CSharp" Version="8.45.0.54064">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-    </ItemGroup>
 
 	<ItemGroup>
 		<None Include="..\README.md">
@@ -46,6 +21,14 @@
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>
 		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Mt.Utilities" Version="6.1.0" />
+		<PackageReference Include="SonarAnalyzer.CSharp" Version="8.45.0.54064">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 	</ItemGroup>
 
 </Project>
