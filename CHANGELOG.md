@@ -6,7 +6,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [6.0.1] - 2022-09-04
+## [6.1.1] - 2022-10-06
+### Добавлено
+- MT-0007: Добавление пакета SonarAnalyzer.CSharp в проект;
+- MT-0007: Добавление mt-entities-abstractions.snk;
+- MT-0007: Добавление Directory.Build.props;
+
+### Изменено
+- MT-0007: Изменение  файла README.md;
+- MT-0007: Обновление зависимостей пакета;
+
+### Удалено
+- -//-
+
+## 6.0.1 - 2022-09-04
 ### Добавлено
 - MT-0005: Добавление файла CHANGELOG.md;
 - MT-0005: Добавление файла .editorconfig;
@@ -29,4 +42,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - -//-
 
 [Unreleased]: https://github.com/g-aa/mt-entities-abstractions/tree/develop
-[6.0.1]: https://github.com/g-aa/mt-entities-abstractions/tree/main
+[6.1.1]: https://github.com/g-aa/mt-entities-abstractions/tree/main

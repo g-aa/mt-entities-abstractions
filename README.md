@@ -4,14 +4,14 @@
 
 ## Перечень технологий (зависимости):
 
-netstandard2.1, [Mt.Utilities](https://github.com/g-aa/mt-utilities)
+netstandard2.1, [Mt.Utilities](https://github.com/g-aa/mt-utilities), SonarAnalyzer.CSharp, NUnit.
 
 ## [История изменения.](CHANGELOG.md)
 
 ## Основной состав функционала пакета:
 
-| Компонент            | Описание                               |
-|----------------------|----------------------------------------|
+| Компонент                                                | Описание                               |
+|----------------------------------------------------------|----------------------------------------|
 | Mt.Entities.Abstractions.Interfaces.IDefaultable         | Сущность МТ по умолчанию.              |
 | Mt.Entities.Abstractions.Interfaces.IEntity              | Сущность МТ.                           |
 | Mt.Entities.Abstractions.Interfaces.IEqualityPredicate   | Сущность МТ с предикатом сравнения.    |
