@@ -27,7 +27,7 @@ namespace Mt.Entities.Abstractions.Extensions
             var result = Check.NotNull(queryable, nameof(queryable)).SingleOrDefault(e => e.Id == guid);
             if (result is null)
             {
-                throw new MtException(ErrorCode.EntityNotFoundError, $"Entity not found in sequence. ('{typeof(TEntity)}'; ID = '{guid}')");
+                throw new MtException(ErrorCode.EntityNotFound, $"Entity not found in sequence. ('{typeof(TEntity)}'; ID = '{guid}')");
             }
             return result;
         }
@@ -47,7 +47,7 @@ namespace Mt.Entities.Abstractions.Extensions
             var result = Check.NotNull(queryable, nameof(queryable)).SingleOrDefault(entity.GetEqualityPredicate());
             if (result is null)
             {
-                throw new MtException(ErrorCode.EntityNotFoundError, $"Entity not found in sequence. ('{entity}')");
+                throw new MtException(ErrorCode.EntityNotFound, $"Entity not found in sequence. ('{entity}')");
             }
             return result;
         }
@@ -72,7 +72,7 @@ namespace Mt.Entities.Abstractions.Extensions
             result = queryable.SingleOrDefault(e => e.Default);
             if (result is null)
             {
-                throw new MtException(ErrorCode.EntityNotFoundError, $"Entity or default value not found in sequence. ('{typeof(TEntity)}'; ID = '{guid}')");
+                throw new MtException(ErrorCode.EntityNotFound, $"Entity or default value not found in sequence. ('{typeof(TEntity)}'; ID = '{guid}')");
             }
             return result;
         }
@@ -97,7 +97,7 @@ namespace Mt.Entities.Abstractions.Extensions
             result = queryable.SingleOrDefault(e => e.Default);
             if (result is null)
             {
-                throw new MtException(ErrorCode.EntityNotFoundError, $"Entity or default value not found in sequence. ('{entity}')");
+                throw new MtException(ErrorCode.EntityNotFound, $"Entity or default value not found in sequence. ('{entity}')");
             }
             return result;
         }
@@ -136,7 +136,7 @@ namespace Mt.Entities.Abstractions.Extensions
             result = queryable.Where(e => e.Default);
             if (!result.Any())
             {
-                throw new MtException(ErrorCode.EntityNotFoundError, $"The required entities not found in the sequence by keys. (IDs = '{string.Join(", ", guids)}')");
+                throw new MtException(ErrorCode.EntityNotFound, $"The required entities not found in the sequence by keys. (IDs = '{string.Join(", ", guids)}')");
             }
             return result;
         }

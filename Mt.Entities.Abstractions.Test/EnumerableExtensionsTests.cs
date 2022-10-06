@@ -81,9 +81,9 @@ namespace Mt.Entities.Abstractions.Test
         /// <param name="expected">ќжидаемый результат.</param>
         [Test]
         [TestCase(nameof(entitySeqNull),        "00000000-0000-0000-0000-000000000000", "Checked parameter is null. (Parameter 'enumerable')")]
-        [TestCase(nameof(entitySeqEmpty),       "00000000-0000-0000-0000-000000000000", "MT-E0003: Entity not found in sequence. ('Mt.Entities.Abstractions.Test.TestEntity'; ID = '00000000-0000-0000-0000-000000000000')")]
-        [TestCase(nameof(entitySeq),            "00000000-0000-0000-0000-000000000000", "MT-E0003: Entity not found in sequence. ('Mt.Entities.Abstractions.Test.TestEntity'; ID = '00000000-0000-0000-0000-000000000000')")]
-        [TestCase(nameof(entitySeqDefaultMany), "00000000-0000-0000-0000-000000000000", "MT-E0003: Entity not found in sequence. ('Mt.Entities.Abstractions.Test.TestEntity'; ID = '00000000-0000-0000-0000-000000000000')")]
+        [TestCase(nameof(entitySeqEmpty),       "00000000-0000-0000-0000-000000000000", "MT-E0011: Entity not found in sequence. ('Mt.Entities.Abstractions.Test.TestEntity'; ID = '00000000-0000-0000-0000-000000000000')")]
+        [TestCase(nameof(entitySeq),            "00000000-0000-0000-0000-000000000000", "MT-E0011: Entity not found in sequence. ('Mt.Entities.Abstractions.Test.TestEntity'; ID = '00000000-0000-0000-0000-000000000000')")]
+        [TestCase(nameof(entitySeqDefaultMany), "00000000-0000-0000-0000-000000000000", "MT-E0011: Entity not found in sequence. ('Mt.Entities.Abstractions.Test.TestEntity'; ID = '00000000-0000-0000-0000-000000000000')")]
         public void SearchByIdNegotiveTest(string seq, Guid guid, string expected)
         {
             var ex = Assert.Catch(() => this.GetEnumerable(seq).Search(guid));
@@ -120,9 +120,9 @@ namespace Mt.Entities.Abstractions.Test
         /// <param name="expected">ќжидаемый результат.</param>
         [Test]
         [TestCase(nameof(entitySeqNull),        "00000000-0000-0000-0000-000000000000", "Entity", "Checked parameter is null. (Parameter 'enumerable')")]
-        [TestCase(nameof(entitySeqEmpty),       "00000000-0000-0000-0000-000000000000", "Entity", "MT-E0003: Entity not found in sequence. ('ID = 00000000-0000-0000-0000-000000000000; title = Entity')")]
-        [TestCase(nameof(entitySeq),            "00000000-0000-0000-0000-000000000000", "Entity", "MT-E0003: Entity not found in sequence. ('ID = 00000000-0000-0000-0000-000000000000; title = Entity')")]
-        [TestCase(nameof(entitySeqDefaultMany), "00000000-0000-0000-0000-000000000000", "Entity", "MT-E0003: Entity not found in sequence. ('ID = 00000000-0000-0000-0000-000000000000; title = Entity')")]
+        [TestCase(nameof(entitySeqEmpty),       "00000000-0000-0000-0000-000000000000", "Entity", "MT-E0011: Entity not found in sequence. ('ID = 00000000-0000-0000-0000-000000000000; title = Entity')")]
+        [TestCase(nameof(entitySeq),            "00000000-0000-0000-0000-000000000000", "Entity", "MT-E0011: Entity not found in sequence. ('ID = 00000000-0000-0000-0000-000000000000; title = Entity')")]
+        [TestCase(nameof(entitySeqDefaultMany), "00000000-0000-0000-0000-000000000000", "Entity", "MT-E0011: Entity not found in sequence. ('ID = 00000000-0000-0000-0000-000000000000; title = Entity')")]
         public void SearchByEntityNegotiveTest(string seq, Guid guid, string title, string expected)
         {
             var entity = new TestEntity()
@@ -159,8 +159,8 @@ namespace Mt.Entities.Abstractions.Test
         [Test]
         [TestCase(nameof(entitySeqNull),        "00000000-0000-0000-0000-000000000000", "Checked parameter is null. (Parameter 'enumerable')")]
         [TestCase(nameof(entitySeqDefaultMany), "00000000-0000-0000-0000-000000000000", "Sequence contains more than one matching element")]
-        [TestCase(nameof(entitySeqEmpty),       "00000000-0000-0000-0000-000000000000", "MT-E0003: Entity or default value not found in sequence. ('Mt.Entities.Abstractions.Test.TestEntity'; ID = '00000000-0000-0000-0000-000000000000')")]
-        [TestCase(nameof(entitySeq),            "00000000-0000-0000-0000-000000000000", "MT-E0003: Entity or default value not found in sequence. ('Mt.Entities.Abstractions.Test.TestEntity'; ID = '00000000-0000-0000-0000-000000000000')")]
+        [TestCase(nameof(entitySeqEmpty),       "00000000-0000-0000-0000-000000000000", "MT-E0011: Entity or default value not found in sequence. ('Mt.Entities.Abstractions.Test.TestEntity'; ID = '00000000-0000-0000-0000-000000000000')")]
+        [TestCase(nameof(entitySeq),            "00000000-0000-0000-0000-000000000000", "MT-E0011: Entity or default value not found in sequence. ('Mt.Entities.Abstractions.Test.TestEntity'; ID = '00000000-0000-0000-0000-000000000000')")]
         public void SearchOrDefaultByIdNegotiveTest(string seq, Guid guid, string expected)
         {
             var ex = Assert.Catch(() => this.GetEnumerable(seq).SearchOrDefault(guid));
@@ -199,8 +199,8 @@ namespace Mt.Entities.Abstractions.Test
         [Test]
         [TestCase(nameof(entitySeqNull),        "00000000-0000-0000-0000-000000000000", "Entity", "Checked parameter is null. (Parameter 'enumerable')")]
         [TestCase(nameof(entitySeqDefaultMany), "00000000-0000-0000-0000-000000000000", "Entity", "Sequence contains more than one matching element")]
-        [TestCase(nameof(entitySeqEmpty),       "00000000-0000-0000-0000-000000000000", "Entity", "MT-E0003: Entity or default value not found in sequence. ('ID = 00000000-0000-0000-0000-000000000000; title = Entity')")]
-        [TestCase(nameof(entitySeq),            "00000000-0000-0000-0000-000000000000", "Entity", "MT-E0003: Entity or default value not found in sequence. ('ID = 00000000-0000-0000-0000-000000000000; title = Entity')")]
+        [TestCase(nameof(entitySeqEmpty),       "00000000-0000-0000-0000-000000000000", "Entity", "MT-E0011: Entity or default value not found in sequence. ('ID = 00000000-0000-0000-0000-000000000000; title = Entity')")]
+        [TestCase(nameof(entitySeq),            "00000000-0000-0000-0000-000000000000", "Entity", "MT-E0011: Entity or default value not found in sequence. ('ID = 00000000-0000-0000-0000-000000000000; title = Entity')")]
         public void SearchOrDefaultByEntityNegotiveTest(string seq, Guid guid, string title, string expected)
         {
             var entity = new TestEntity()
@@ -307,7 +307,7 @@ namespace Mt.Entities.Abstractions.Test
         /// <param name="objects">UUIDs.</param>
         [Test]
         [TestCase(nameof(entitySeqNull),    new object[] { "C5BBF5EB-38FD-4394-A0A5-24912BCC5A63", "E342C5E4-66A6-4105-A050-DA0DF10D8200" }, "Checked parameter is null. (Parameter 'enumerable')")]
-        [TestCase(nameof(entitySeq),        new object[] { "00000000-0000-0000-0000-000000000000", "11111111-1111-1111-1111-111111111111" }, "MT-E0003: The required entities not found in the sequence by keys. (IDs = '00000000-0000-0000-0000-000000000000, 11111111-1111-1111-1111-111111111111')")]
+        [TestCase(nameof(entitySeq),        new object[] { "00000000-0000-0000-0000-000000000000", "11111111-1111-1111-1111-111111111111" }, "MT-E0011: The required entities not found in the sequence by keys. (IDs = '00000000-0000-0000-0000-000000000000, 11111111-1111-1111-1111-111111111111')")]
         public void SearchManyOrDefaultNegotiveTest(string seq, object[] objects, string expected)
         {
             var ids = objects.Select(obj => Guid.Parse((string)obj));
