@@ -14,12 +14,19 @@
 		<PackageProjectUrl>https://github.com/g-aa/mt-entities-abstractions</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageIcon>iconMt.png</PackageIcon>
-		<Build_Version Condition=" '$(Build_Version)' == '' ">6.1.0</Build_Version>
+		<Build_Version Condition=" '$(Build_Version)' == '' ">6.1.1</Build_Version>
 		<Build_Number Condition=" '$(Build_Number)' == '' ">$(Build_Version).0</Build_Number>
 		<Version>$(Build_Version)</Version>
 		<PackageVersion>$(Build_Version)</PackageVersion>
 		<FileVersion>$(Build_Number)</FileVersion>
 		<AssemblyVersion>$(Build_Number)</AssemblyVersion>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="SonarAnalyzer.CSharp" Version="8.46.0.54807">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
 
 </Project>
