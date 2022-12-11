@@ -7,7 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{B918AB22-1
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
+		.test.bat = .test.bat
 		CHANGELOG.md = CHANGELOG.md
+		coverlet.runsettings = coverlet.runsettings
 		Directory.Build.props = Directory.Build.props
 		iconMt.png = iconMt.png
 		iconNet.png = iconNet.png
@@ -15,9 +17,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{B918AB22-1
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mt.Entities.Abstractions", "Mt.Entities.Abstractions\Mt.Entities.Abstractions.csproj", "{EDD20CBB-DB49-48AA-B757-4132AC318BD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mt.Entities.Abstractions", "src\Mt.Entities.Abstractions\Mt.Entities.Abstractions.csproj", "{EDD20CBB-DB49-48AA-B757-4132AC318BD7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mt.Entities.Abstractions.Test", "Mt.Entities.Abstractions.Test\Mt.Entities.Abstractions.Test.csproj", "{AE661001-A7F0-45A1-8EEE-3FFEE7D26C66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mt.Entities.Abstractions.Test", "tests\Mt.Entities.Abstractions.Test\Mt.Entities.Abstractions.Test.csproj", "{AE661001-A7F0-45A1-8EEE-3FFEE7D26C66}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{41E5ED2B-8585-4309-BFB9-2317878DAEDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{804D10EE-0291-4BA1-BBD8-8F513282372E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +42,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EDD20CBB-DB49-48AA-B757-4132AC318BD7} = {41E5ED2B-8585-4309-BFB9-2317878DAEDB}
+		{AE661001-A7F0-45A1-8EEE-3FFEE7D26C66} = {804D10EE-0291-4BA1-BBD8-8F513282372E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F77A572B-9C82-4156-85C5-5F10384B335F}

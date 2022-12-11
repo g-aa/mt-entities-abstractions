@@ -103,6 +103,38 @@ namespace Mt.Entities.Abstractions.Extensions
         }
 
         /// <summary>
+        /// Найти сущность в последовательности или создать новую сущность.
+        /// </summary>
+        /// <typeparam name="TEntity">Тип сущности.</typeparam>
+        /// <param name="queryable">Запрашиваемый тип.</param>
+        /// <param name="guid">Идентификатор.</param>
+        /// <param name="factory">Способ создания сущноти.</param>
+        /// <returns>Сущность.</returns>
+        /// <exception cref="ArgumentNullException">Если входная последовательность равна null.</exception> 
+        public static TEntity SearchOrCreate<TEntity>(this IQueryable<TEntity> queryable, Guid guid, Func<TEntity> factory = null)
+            where TEntity : class, IEntity
+        {
+            var result = Check.NotNull(queryable, nameof(queryable)).SingleOrDefault(e => e.Id == guid);
+            return result ?? factory?.Invoke();
+        }
+
+        /// <summary>
+        /// Найти сущность в последовательности или создать новую сущность.
+        /// </summary>
+        /// <typeparam name="TEntity">Тип сущности.</typeparam>
+        /// <param name="queryable">Запрашиваемый тип.</param>
+        /// <param name="entity">Исковая сущность.</param>
+        /// <param name="factory">Способ создания сущноти.</param>
+        /// <returns>Сущность.</returns>
+        /// <exception cref="ArgumentNullException">Если входная последовательность равна null.</exception> 
+        public static TEntity SearchOrCreate<TEntity>(this IQueryable<TEntity> queryable, TEntity entity, Func<TEntity> factory = null)
+            where TEntity : class, IEqualityPredicate<TEntity>
+        {
+            var result = Check.NotNull(queryable, nameof(queryable)).SingleOrDefault(entity.GetEqualityPredicate());
+            return result ?? factory?.Invoke();
+        }
+
+        /// <summary>
         /// Найти сущность в последовательности или вернуть значение null.
         /// </summary>
         /// <typeparam name="TEntity">Тип сущности.</typeparam>

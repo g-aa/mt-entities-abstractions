@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<RunSettings>
+  <MaxCpuCount>1</MaxCpuCount>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="XPlat Code Coverage">
+        <Configuration>
+          <Format>opencover,cobertura</Format>
+          <Exclude>[*]*.Migrations.*</Exclude>
+          <ExcludeByAttribute>System.ObsoleteAttribute,System.CodeDom.Compiler.GeneratedCodeAttribute,CompilerGeneratedAttribute,ExcludeFromCodeCoverage,*.MigrationAttribute</ExcludeByAttribute>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>
