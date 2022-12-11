@@ -59,7 +59,7 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Положительные тесты для метода <see cref="EnumerableExtensions.Search"/>.
+        /// Положительные тесты для метода <see cref="EnumerableExtensions.Search{TEntity}(IEnumerable{TEntity}, Guid)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -74,7 +74,7 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Отрицательные тесты для метода <see cref="EnumerableExtensions.Search"/>.
+        /// Отрицательные тесты для метода <see cref="EnumerableExtensions.Search{TEntity}(IEnumerable{TEntity}, Guid)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -91,7 +91,7 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Положительные тесты для метода <see cref="EnumerableExtensions.Search"/>.
+        /// Положительные тесты для метода <see cref="EnumerableExtensions.Search{TEntity}(IEnumerable{TEntity}, TEntity)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -112,7 +112,7 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Отрицательные тесты для метода <see cref="EnumerableExtensions.Search"/>.
+        /// Отрицательные тесты для метода <see cref="EnumerableExtensions.Search{TEntity}(IEnumerable{TEntity}, TEntity)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -135,7 +135,7 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Положительные тесты для метода <see cref="EnumerableExtensions.SearchOrDefault"/>.
+        /// Положительные тесты для метода <see cref="EnumerableExtensions.SearchOrDefault{TEntity}(IEnumerable{TEntity}, Guid)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -151,7 +151,7 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Отрицательные тесты для метода <see cref="EnumerableExtensions.SearchOrDefault"/>.
+        /// Отрицательные тесты для метода <see cref="EnumerableExtensions.SearchOrDefault{TEntity}(IEnumerable{TEntity}, Guid)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -168,7 +168,7 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Положительные тесты для метода <see cref="EnumerableExtensions.SearchOrDefault"/>.
+        /// Положительные тесты для метода <see cref="EnumerableExtensions.SearchOrDefault{TEntity}(IEnumerable{TEntity}, TEntity)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -190,7 +190,7 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Отрицательные тесты для метода <see cref="EnumerableExtensions.SearchOrDefault"/>.
+        /// Отрицательные тесты для метода <see cref="EnumerableExtensions.SearchOrDefault{TEntity}(IEnumerable{TEntity}, TEntity)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -213,7 +213,7 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Положительные тесты для метода <see cref="EnumerableExtensions.SearchOrNull"/>.
+        /// Положительные тесты для метода <see cref="EnumerableExtensions.SearchOrNull{TEntity}(IEnumerable{TEntity}, Guid)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -229,7 +229,7 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Отрицательные тесты для метода <see cref="EnumerableExtensions.SearchOrNull"/>.
+        /// Отрицательные тесты для метода <see cref="EnumerableExtensions.SearchOrNull{TEntity}(IEnumerable{TEntity}, Guid)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -243,7 +243,7 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Положительные тесты для метода <see cref="EnumerableExtensions.IsContained"/>.
+        /// Положительные тесты для метода <see cref="EnumerableExtensions.IsContained{TEntity}(IEnumerable{TEntity}, TEntity)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -265,7 +265,7 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Отрицательные тесты для метода <see cref="EnumerableExtensions.IsContained"/>.
+        /// Отрицательные тесты для метода <see cref="EnumerableExtensions.IsContained{TEntity}(IEnumerable{TEntity}, TEntity)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -285,7 +285,7 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Положительные тесты для метода <see cref="EnumerableExtensions.SearchManyOrDefault"/>.
+        /// Положительные тесты для метода <see cref="EnumerableExtensions.SearchManyOrDefault{TEntity}(IEnumerable{TEntity}, IEnumerable{Guid})"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="objects">UUIDs.</param>
@@ -301,10 +301,11 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Отрицательные тесты для метода <see cref="EnumerableExtensions.SearchManyOrDefault"/>.
+        /// Отрицательные тесты для метода <see cref="EnumerableExtensions.SearchManyOrDefault{TEntity}(IEnumerable{TEntity}, IEnumerable{Guid})"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="objects">UUIDs.</param>
+        /// <param name="expected">Ожидаемый результат.</param>
         [Test]
         [TestCase(nameof(entitySeqNull),    new object[] { "C5BBF5EB-38FD-4394-A0A5-24912BCC5A63", "E342C5E4-66A6-4105-A050-DA0DF10D8200" }, "Checked parameter is null. (Parameter 'enumerable')")]
         [TestCase(nameof(entitySeq),        new object[] { "00000000-0000-0000-0000-000000000000", "11111111-1111-1111-1111-111111111111" }, "MT-E0011: The required entities not found in the sequence by keys. (IDs = '00000000-0000-0000-0000-000000000000, 11111111-1111-1111-1111-111111111111')")]

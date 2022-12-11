@@ -1,7 +1,7 @@
 ﻿using Mt.Entities.Abstractions.Extensions;
 using NUnit.Framework;
-using System.Linq;
 using System;
+using System.Linq;
 
 namespace Mt.Entities.Abstractions.Test
 {
@@ -58,7 +58,7 @@ namespace Mt.Entities.Abstractions.Test
         }
 
         /// <summary>
-        /// Положительные тесты для метода <see cref="QueryableExtensions.Search"/>.
+        /// Положительные тесты для метода <see cref="QueryableExtensions.Search{TEntity}(IQueryable{TEntity}, Guid)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -68,12 +68,12 @@ namespace Mt.Entities.Abstractions.Test
         [TestCase(nameof(entitySeqDefaultMany), "4C11E861-8E9B-48BD-A029-46D8320142D7", "Entity 7")]
         public void SearchByIdPositiveTest(string seq, Guid guid, string expected)
         {
-            var result = this.GetEnumerable(seq).Search(guid);
+            var result = this.GetQueryable(seq).Search(guid);
             Assert.That(result.Title, Is.EqualTo(expected));
         }
 
         /// <summary>
-        /// Отрицательные тесты для метода <see cref="QueryableExtensions.Search"/>.
+        /// Отрицательные тесты для метода <see cref="QueryableExtensions.Search{TEntity}(IQueryable{TEntity}, Guid)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -85,12 +85,12 @@ namespace Mt.Entities.Abstractions.Test
         [TestCase(nameof(entitySeqDefaultMany), "00000000-0000-0000-0000-000000000000", "MT-E0011: Entity not found in sequence. ('Mt.Entities.Abstractions.Test.TestEntity'; ID = '00000000-0000-0000-0000-000000000000')")]
         public void SearchByIdNegotiveTest(string seq, Guid guid, string expected)
         {
-            var ex = Assert.Catch(() => this.GetEnumerable(seq).Search(guid));
+            var ex = Assert.Catch(() => this.GetQueryable(seq).Search(guid));
             Assert.That(ex.Message, Is.EqualTo(expected));
         }
 
         /// <summary>
-        /// Положительные тесты для метода <see cref="QueryableExtensions.Search"/>.
+        /// Положительные тесты для метода <see cref="QueryableExtensions.Search{TEntity}(IQueryable{TEntity}, TEntity)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -106,12 +106,12 @@ namespace Mt.Entities.Abstractions.Test
                 Id = guid,
                 Title = title,
             };
-            var result = this.GetEnumerable(seq).Search(entity);
+            var result = this.GetQueryable(seq).Search(entity);
             Assert.That(result.Title, Is.EqualTo(expected));
         }
 
         /// <summary>
-        /// Отрицательные тесты для метода <see cref="QueryableExtensions.Search"/>.
+        /// Отрицательные тесты для метода <see cref="QueryableExtensions.Search{TEntity}(IQueryable{TEntity}, TEntity)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -129,12 +129,12 @@ namespace Mt.Entities.Abstractions.Test
                 Id = guid,
                 Title = title,
             };
-            var ex = Assert.Catch(() => this.GetEnumerable(seq).Search(entity));
+            var ex = Assert.Catch(() => this.GetQueryable(seq).Search(entity));
             Assert.That(ex.Message, Is.EqualTo(expected));
         }
 
         /// <summary>
-        /// Положительные тесты для метода <see cref="QueryableExtensions.SearchOrDefault"/>.
+        /// Положительные тесты для метода <see cref="QueryableExtensions.SearchOrDefault{TEntity}(IQueryable{TEntity}, Guid)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -145,12 +145,12 @@ namespace Mt.Entities.Abstractions.Test
         [TestCase(nameof(entitySeqDefault),     "00000000-0000-0000-0000-000000000000", "Default 1")]
         public void SearchOrDefaultByIdPositiveTest(string seq, Guid guid, string expected)
         {
-            var result = this.GetEnumerable(seq).SearchOrDefault(guid);
+            var result = this.GetQueryable(seq).SearchOrDefault(guid);
             Assert.That(result.Title, Is.EqualTo(expected));
         }
 
         /// <summary>
-        /// Отрицательные тесты для метода <see cref="QueryableExtensions.SearchOrDefault"/>.
+        /// Отрицательные тесты для метода <see cref="QueryableExtensions.SearchOrDefault{TEntity}(IQueryable{TEntity}, Guid)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -162,12 +162,12 @@ namespace Mt.Entities.Abstractions.Test
         [TestCase(nameof(entitySeq),            "00000000-0000-0000-0000-000000000000", "MT-E0011: Entity or default value not found in sequence. ('Mt.Entities.Abstractions.Test.TestEntity'; ID = '00000000-0000-0000-0000-000000000000')")]
         public void SearchOrDefaultByIdNegotiveTest(string seq, Guid guid, string expected)
         {
-            var ex = Assert.Catch(() => this.GetEnumerable(seq).SearchOrDefault(guid));
+            var ex = Assert.Catch(() => this.GetQueryable(seq).SearchOrDefault(guid));
             Assert.That(ex.Message, Is.EqualTo(expected));
         }
 
         /// <summary>
-        /// Положительные тесты для метода <see cref="QueryableExtensions.SearchOrDefault"/>.
+        /// Положительные тесты для метода <see cref="QueryableExtensions.SearchOrDefault{TEntity}(IQueryable{TEntity}, TEntity)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -184,12 +184,12 @@ namespace Mt.Entities.Abstractions.Test
                 Id = guid,
                 Title = title,
             };
-            var result = this.GetEnumerable(seq).SearchOrDefault(entity);
+            var result = this.GetQueryable(seq).SearchOrDefault(entity);
             Assert.That(result.Title, Is.EqualTo(expected));
         }
 
         /// <summary>
-        /// Отрицательные тесты для метода <see cref="QueryableExtensions.SearchOrDefault"/>.
+        /// Отрицательные тесты для метода <see cref="QueryableExtensions.SearchOrDefault{TEntity}(IQueryable{TEntity}, TEntity)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -207,12 +207,12 @@ namespace Mt.Entities.Abstractions.Test
                 Id = guid,
                 Title = title,
             };
-            var ex = Assert.Catch(() => this.GetEnumerable(seq).SearchOrDefault(entity));
+            var ex = Assert.Catch(() => this.GetQueryable(seq).SearchOrDefault(entity));
             Assert.That(ex.Message, Is.EqualTo(expected));
         }
 
         /// <summary>
-        /// Положительные тесты для метода <see cref="QueryableExtensions.SearchOrNull"/>.
+        /// Положительные тесты для метода <see cref="QueryableExtensions.SearchOrNull{TEntity}(IQueryable{TEntity}, Guid)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -223,12 +223,12 @@ namespace Mt.Entities.Abstractions.Test
         [TestCase(nameof(entitySeqEmpty),   "C5BBF5EB-38FD-4394-A0A5-24912BCC5A63", null)]
         public void SearchOrNullByIdPositiveTest(string seq, Guid guid, string expected)
         {
-            var result = this.GetEnumerable(seq).SearchOrNull(guid);
+            var result = this.GetQueryable(seq).SearchOrNull(guid);
             Assert.That(result?.Title, Is.EqualTo(expected));
         }
 
         /// <summary>
-        /// Отрицательные тесты для метода <see cref="QueryableExtensions.SearchOrNull"/>.
+        /// Отрицательные тесты для метода <see cref="QueryableExtensions.SearchOrNull{TEntity}(IQueryable{TEntity}, Guid)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -237,12 +237,12 @@ namespace Mt.Entities.Abstractions.Test
         [TestCase(nameof(entitySeqNull),    "C5BBF5EB-38FD-4394-A0A5-24912BCC5A63", "Checked parameter is null. (Parameter 'queryable')")]
         public void SearchOrNullByIdNegotiveTest(string seq, Guid guid, string expected)
         {
-            var ex = Assert.Catch(() => this.GetEnumerable(seq).SearchOrNull(guid));
+            var ex = Assert.Catch(() => this.GetQueryable(seq).SearchOrNull(guid));
             Assert.That(ex.Message, Is.EqualTo(expected));
         }
 
         /// <summary>
-        /// Положительные тесты для метода <see cref="QueryableExtensions.IsContained"/>.
+        /// Положительные тесты для метода <see cref="QueryableExtensions.IsContained{TEntity}(IQueryable{TEntity}, TEntity)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -259,12 +259,12 @@ namespace Mt.Entities.Abstractions.Test
                 Id = guid,
                 Title = title,
             };
-            var result = this.GetEnumerable(seq).IsContained(entity);
+            var result = this.GetQueryable(seq).IsContained(entity);
             Assert.That(result, Is.EqualTo(expected));
         }
 
         /// <summary>
-        /// Отрицательные тесты для метода <see cref="QueryableExtensions.IsContained"/>.
+        /// Отрицательные тесты для метода <see cref="QueryableExtensions.IsContained{TEntity}(IQueryable{TEntity}, TEntity)"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="guid">UUID.</param>
@@ -279,12 +279,12 @@ namespace Mt.Entities.Abstractions.Test
                 Id = guid,
                 Title = title,
             };
-            var ex = Assert.Catch(() => this.GetEnumerable(seq).IsContained(entity));
+            var ex = Assert.Catch(() => this.GetQueryable(seq).IsContained(entity));
             Assert.That(ex.Message, Is.EqualTo(expected));
         }
 
         /// <summary>
-        /// Положительные тесты для метода <see cref="QueryableExtensions.SearchManyOrDefault"/>.
+        /// Положительные тесты для метода <see cref="QueryableExtensions.SearchManyOrDefault{TEntity}(IQueryable{TEntity}, System.Collections.Generic.IEnumerable{Guid})"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="objects">UUIDs.</param>
@@ -295,22 +295,23 @@ namespace Mt.Entities.Abstractions.Test
         public void SearchManyOrDefaultPositiveTest(string seq, object[] objects)
         {
             var ids = objects.Select(obj => Guid.Parse((string)obj));
-            var resutl = this.GetEnumerable(seq).SearchManyOrDefault(ids);
+            var resutl = this.GetQueryable(seq).SearchManyOrDefault(ids);
             Assert.That(resutl.Any());
         }
 
         /// <summary>
-        /// Отрицательные тесты для метода <see cref="QueryableExtensions.SearchManyOrDefault"/>.
+        /// Отрицательные тесты для метода <see cref="QueryableExtensions.SearchManyOrDefault{TEntity}(IQueryable{TEntity}, System.Collections.Generic.IEnumerable{Guid})"/>.
         /// </summary>
         /// <param name="seq">Наименование последовательности.</param>
         /// <param name="objects">UUIDs.</param>
+        /// <param name="expected">Ожидаемый результат.</param>
         [Test]
         [TestCase(nameof(entitySeqNull),    new object[] { "C5BBF5EB-38FD-4394-A0A5-24912BCC5A63", "E342C5E4-66A6-4105-A050-DA0DF10D8200" }, "Checked parameter is null. (Parameter 'queryable')")]
         [TestCase(nameof(entitySeq),        new object[] { "00000000-0000-0000-0000-000000000000", "11111111-1111-1111-1111-111111111111" }, "MT-E0011: The required entities not found in the sequence by keys. (IDs = '00000000-0000-0000-0000-000000000000, 11111111-1111-1111-1111-111111111111')")]
         public void SearchManyOrDefaultNegotiveTest(string seq, object[] objects, string expected)
         {
             var ids = objects.Select(obj => Guid.Parse((string)obj));
-            var ex = Assert.Catch(() => this.GetEnumerable(seq).SearchManyOrDefault(ids));
+            var ex = Assert.Catch(() => this.GetQueryable(seq).SearchManyOrDefault(ids));
             Assert.That(ex.Message, Is.EqualTo(expected));
         }
 
@@ -319,7 +320,7 @@ namespace Mt.Entities.Abstractions.Test
         /// </summary>
         /// <param name="seqName">Наименование последовательности.</param>
         /// <returns></returns>
-        private IQueryable<TestEntity> GetEnumerable(string seqName)
+        private IQueryable<TestEntity> GetQueryable(string seqName)
         {
             switch (seqName)
             {
