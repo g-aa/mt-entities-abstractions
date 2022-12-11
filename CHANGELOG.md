@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - MT-0010: Добавление пакета JunitXml.TestLogger;
 - MT-0010: Добавление .test.bat;
 - MT-0010: Добавление файла coverlet.runsettings;
+- MT-0010: Добавление метода расширения SearchOrCreate для Enumerable, Queryable;
 
 ### Изменено
 - MT-0010: Обновление пакетов;
