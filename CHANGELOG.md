@@ -6,7 +6,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [6.1.1] - 2022-10-06
+## [6.2.0] - 2022-12-11
+### Добавлено
+- MT-0010: Добавление пакета coverlet.collector;
+- MT-0010: Добавление пакета JunitXml.TestLogger;
+- MT-0010: Добавление .test.bat;
+- MT-0010: Добавление файла coverlet.runsettings;
+- MT-0010: Добавление метода расширения SearchOrCreate для Enumerable, Queryable;
+
+### Изменено
+- MT-0010: Обновление пакетов;
+- MT-0010: Изменение путей в сборке, добавление каталогов src и tests;
+- MT-0010: Обновление файла README.md;
+- MT-0010: Обновление Unit-тестов;
+
+### Удалено
+- -//-
+
+## 6.1.1 - 2022-10-06
 ### Добавлено
 - MT-0007: Добавление пакета SonarAnalyzer.CSharp в проект;
 - MT-0007: Добавление mt-entities-abstractions.snk;
@@ -42,4 +59,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - -//-
 
 [Unreleased]: https://github.com/g-aa/mt-entities-abstractions/tree/develop
-[6.1.1]: https://github.com/g-aa/mt-entities-abstractions/tree/main
+[6.2.0]: https://github.com/g-aa/mt-entities-abstractions/tree/main

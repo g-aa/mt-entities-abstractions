@@ -11,21 +11,21 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="..\README.md">
+		<None Include="..\..\README.md">
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>
 		</None>
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Include="..\iconMt.png">
+		<None Include="..\..\iconMt.png">
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>
 		</None>
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Mt.Utilities" Version="6.1.1" />
+		<PackageReference Include="Mt.Utilities" Version="6.2.0" />
 	</ItemGroup>
 
 </Project>
