@@ -1,13 +1,12 @@
-﻿namespace Mt.Entities.Abstractions.Interfaces
+namespace Mt.Entities.Abstractions.Interfaces;
+
+/// <summary>
+/// Сущность МТ, удаляемая.
+/// </summary>
+public interface IRemovable
 {
     /// <summary>
-    /// Сущность МТ, удаляемая.
+    /// Возможность удалить.
     /// </summary>
-    public interface IRemovable
-    {
-        /// <summary>
-        /// Возможность удалить.
-        /// </summary>
-        bool Removable { get; set; }
-    }
+    bool Removable { get; set; }
 }

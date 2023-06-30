@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
-
-	<PropertyGroup>
-		<Nullable>disable</Nullable>
-		<LangVersion>latest</LangVersion>
-		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-		<Authors>Andrey G.</Authors>
-		<Company>Mt-Rele</Company>
-		<Copyright>Copyright Mt-Rele 1993 – 2022.</Copyright>
-		<NeutralLanguage>ru-RU</NeutralLanguage>
-		<RepositoryType>git</RepositoryType>
-		<RepositoryUrl>https://github.com/g-aa/mt-entities-abstractions</RepositoryUrl>
-		<PackageProjectUrl>https://github.com/g-aa/mt-entities-abstractions</PackageProjectUrl>
-		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<PackageIcon>iconMt.png</PackageIcon>
-		<Build_Version Condition=" '$(Build_Version)' == '' ">6.2.0</Build_Version>
-		<Build_Number Condition=" '$(Build_Number)' == '' ">$(Build_Version).0</Build_Number>
-		<Version>$(Build_Version)</Version>
-		<PackageVersion>$(Build_Version)</PackageVersion>
-		<FileVersion>$(Build_Number)</FileVersion>
-		<AssemblyVersion>$(Build_Number)</AssemblyVersion>
-	</PropertyGroup>
-
-	<ItemGroup>
-		<PackageReference Include="SonarAnalyzer.CSharp" Version="8.50.0.58025">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-	</ItemGroup>
-
+  <PropertyGroup>
+    <Authors>Andrey G.</Authors>
+    <Company>Mt-Rele</Company>
+    <Copyright>Copyright Mt-Rele 1993 – 2023.</Copyright>
+    <NeutralLanguage>ru-RU</NeutralLanguage>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/g-aa/mt-entities-abstractions</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/g-aa/mt-entities-abstractions</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>iconMt.png</PackageIcon>
+    <Build_Version Condition=" '$(Build_Version)' == '' ">6.3.0</Build_Version>
+    <Build_Number Condition=" '$(Build_Number)' == '' ">$(Build_Version).0</Build_Number>
+    <Version>$(Build_Version)</Version>
+    <PackageVersion>$(Build_Version)</PackageVersion>
+    <FileVersion>$(Build_Number)</FileVersion>
+    <AssemblyVersion>$(Build_Number)</AssemblyVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="9.4.0.72892">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+  </PropertyGroup>
 </Project>

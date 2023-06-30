@@ -1,13 +1,12 @@
-﻿namespace Mt.Entities.Abstractions.Interfaces
+namespace Mt.Entities.Abstractions.Interfaces;
+
+/// <summary>
+/// Сущность МТ по умолчанию.
+/// </summary>
+public interface IDefaultable
 {
     /// <summary>
-    /// Сущность МТ по умолчанию.
+    /// Значение по умолчанию.
     /// </summary>
-    public interface IDefaultable
-    {
-        /// <summary>
-        /// Значение по умолчанию.
-        /// </summary>
-        bool Default { get; set; }
-    }
+    bool Default { get; set; }
 }
