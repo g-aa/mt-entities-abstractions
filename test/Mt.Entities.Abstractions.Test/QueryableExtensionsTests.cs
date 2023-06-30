@@ -457,7 +457,7 @@ public sealed class QueryableExtensionsTests
         // assert
         Assert.That(ex.Message, Is.EqualTo(expected));
     }
-    
+
     /// <summary>
     /// Получить последовательность для проведения тестов.
     /// </summary>
