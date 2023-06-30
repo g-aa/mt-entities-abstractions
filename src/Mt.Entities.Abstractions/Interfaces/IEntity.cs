@@ -1,15 +1,12 @@
-﻿using System;
+namespace Mt.Entities.Abstractions.Interfaces;
 
-namespace Mt.Entities.Abstractions.Interfaces
+/// <summary>
+/// Сущность МТ.
+/// </summary>
+public interface IEntity
 {
     /// <summary>
-    /// Сущность МТ.
+    /// Идентификатор.
     /// </summary>
-    public interface IEntity
-    {
-        /// <summary>
-        /// Идентификатор.
-        /// </summary>
-        Guid Id { get; set; }
-    }
+    Guid Id { get; set; }
 }
