@@ -1,18 +1,18 @@
 # <p><img src="iconMt.png" width="64px" height="64px" align="middle"/> Mt Entities abstractions</p>
 
-Абстракции сущностей используемых в Мt Rele.
+Абстракции сущностей используемых в Мt-Relay.
 
-## Перечень технологий (зависимости):
+## Перечень технологий
 
-netstandard2.1, [Mt.Utilities](https://github.com/g-aa/mt-utilities), SonarAnalyzer.CSharp, NUnit.
+net8.0, [Mt.Utilities](https://github.com/g-aa/mt-utilities), SonarAnalyzer.CSharp, NUnit.
 
-## [История изменения.](CHANGELOG.md)
+## [История изменения](CHANGELOG.md)
 
-## Покрытие кода тестами:
+## Покрытие кода тестами
 
-Перед первым запуском ```.test.bat```, для просмотра покрытия кода тестами необходимо выполнить команду:
+Перед первым запуском `.test.bat`, для просмотра покрытия кода тестами необходимо выполнить команду:
 
-```dotnet tool list --global```
+`dotnet tool list --global`
 
 ```
 Идентификатор пакета                   Версия      Команды
@@ -20,10 +20,9 @@ netstandard2.1, [Mt.Utilities](https://github.com/g-aa/mt-utilities), SonarAnaly
 dotnet-reportgenerator-globaltool      5.1.19      reportgenerator
 ```
 
+`dotnet tool install -g dotnet-reportgenerator-globaltool`
 
-```dotnet tool install -g dotnet-reportgenerator-globaltool```
-
-## Основной состав функционала пакета:
+## Основной состав функционала пакета
 
 | Компонент                                                | Описание                               |
 |----------------------------------------------------------|----------------------------------------|
