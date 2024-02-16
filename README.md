@@ -10,15 +10,19 @@ net8.0, [Mt.Utilities](https://github.com/g-aa/mt-utilities), SonarAnalyzer.CSha
 
 ## Покрытие кода тестами
 
-Перед первым запуском `.test.bat`, для просмотра покрытия кода тестами необходимо выполнить команду:
+Перед первым запуском `.test.bat`, для просмотра покрытия кода тестами проверьте наличие `dotnet-reportgenerator-globaltool` выполнив команду:
 
 `dotnet tool list --global`
+
+в перечне пакетов должен присутствовать необходимый пакет:
 
 ```
 Идентификатор пакета                   Версия      Команды
 ------------------------------------------------------------------
 dotnet-reportgenerator-globaltool      5.1.19      reportgenerator
 ```
+
+при его отсутствии необходимо выполнить команду:
 
 `dotnet tool install -g dotnet-reportgenerator-globaltool`
 

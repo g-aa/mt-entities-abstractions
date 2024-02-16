@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net8.0</TargetFrameworks>
+    <IsPackable>true</IsPackable>
     <PackageId>Mt.Entities.Abstractions</PackageId>
     <PackageTags>Mt;Net;Entities;</PackageTags>
     <Description>Абстракции сущностей используемые в проектах Mt Relay.</Description>
