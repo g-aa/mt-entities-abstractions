@@ -26,6 +26,7 @@ public static class EnumerableExtensions
         {
             throw new MtException(ErrorCode.EntityNotFound, $"Entity not found in sequence. ('{typeof(TEntity)}'; ID = '{guid}')");
         }
+
         return result;
     }
 
@@ -46,6 +47,7 @@ public static class EnumerableExtensions
         {
             throw new MtException(ErrorCode.EntityNotFound, $"Entity not found in sequence. ('{entity}')");
         }
+
         return result;
     }
 
@@ -66,11 +68,13 @@ public static class EnumerableExtensions
         {
             return result;
         }
+
         result = enumerable.SingleOrDefault(e => e.Default);
         if (result is null)
         {
             throw new MtException(ErrorCode.EntityNotFound, $"Entity or default value not found in sequence. ('{typeof(TEntity)}'; ID = '{guid}')");
         }
+
         return result;
     }
 
@@ -91,11 +95,13 @@ public static class EnumerableExtensions
         {
             return result;
         }
+
         result = enumerable.SingleOrDefault(e => e.Default);
         if (result is null)
         {
             throw new MtException(ErrorCode.EntityNotFound, $"Entity or default value not found in sequence. ('{entity}')");
         }
+
         return result;
     }
 
@@ -107,7 +113,7 @@ public static class EnumerableExtensions
     /// <param name="guid">Идентификатор.</param>
     /// <param name="factory">Способ создания сущноти.</param>
     /// <returns>Сущность.</returns>
-    /// <exception cref="ArgumentNullException">Если входная последовательность равна null.</exception> 
+    /// <exception cref="ArgumentNullException">Если входная последовательность равна null.</exception>
     public static TEntity? SearchOrCreate<TEntity>(this IEnumerable<TEntity> enumerable, Guid guid, Func<TEntity?>? factory = null)
         where TEntity : class, IEntity
     {
@@ -123,7 +129,7 @@ public static class EnumerableExtensions
     /// <param name="entity">Исковая сущность.</param>
     /// <param name="factory">Способ создания сущноти.</param>
     /// <returns>Сущность.</returns>
-    /// <exception cref="ArgumentNullException">Если входная последовательность равна null.</exception> 
+    /// <exception cref="ArgumentNullException">Если входная последовательность равна null.</exception>
     public static TEntity? SearchOrCreate<TEntity>(this IEnumerable<TEntity> enumerable, TEntity entity, Func<TEntity?>? factory = null)
         where TEntity : class, IEqualityPredicate<TEntity>
     {
@@ -139,7 +145,7 @@ public static class EnumerableExtensions
     /// <param name="guid">Идентификатор.</param>
     /// <returns>Сущность.</returns>
     /// <exception cref="ArgumentNullException">Если входная последовательность равна null.</exception>
-    public static TEntity SearchOrNull<TEntity>(this IEnumerable<TEntity> enumerable, Guid guid)
+    public static TEntity? SearchOrNull<TEntity>(this IEnumerable<TEntity> enumerable, Guid guid)
         where TEntity : class, IEntity
     {
         return Check.NotNull(enumerable, nameof(enumerable)).SingleOrDefault(e => e.Id == guid);
@@ -162,11 +168,13 @@ public static class EnumerableExtensions
         {
             return result;
         }
+
         result = enumerable.Where(e => e.Default);
         if (!result.Any())
         {
             throw new MtException(ErrorCode.EntityNotFound, $"The required entities not found in the sequence by keys. (IDs = '{string.Join(", ", guids)}')");
         }
+
         return result;
     }
 

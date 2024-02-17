@@ -2,10 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [8.0.0] - 2024-02-15
+
+### Изменено
+
+- MT-0010: Обновление проекта;
 
 ## [6.3.0] - 2023-06-30
 
@@ -61,7 +66,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - MT-0002: Реализация базового функционал пакета Mt.Entities.Abstractions;
 
-[Unreleased]: https://github.com/g-aa/mt-entities-abstractions/compare/release-v6.3.0...main
+[Unreleased]: https://github.com/g-aa/mt-entities-abstractions/compare/release-v8.0.0...main
+[8.0.0]: https://github.com/g-aa/mt-entities-abstractions/compare/release-v6.3.0...release-v8.0.0
 [6.3.0]: https://github.com/g-aa/mt-entities-abstractions/compare/release-v6.2.0...release-v6.3.0
 [6.2.0]: https://github.com/g-aa/mt-entities-abstractions/compare/release-v6.1.1...release-v6.2.0
 [6.1.1]: https://github.com/g-aa/mt-entities-abstractions/compare/release-v6.0.1...release-v6.1.1
