@@ -1,9 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFrameworks>net8.0</TargetFrameworks>
+    <IsPackable>true</IsPackable>
     <PackageId>Mt.Entities.Abstractions</PackageId>
     <PackageTags>Mt;Net;Entities;</PackageTags>
-    <Description>Абстракции сущностей используемые в проектах Mt Rele.</Description>
+    <Description>Абстракции сущностей используемые в проектах Mt Relay.</Description>
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)mt-entities-abstractions.snk</AssemblyOriginatorKeyFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -13,6 +14,6 @@
     <None Include="..\..\iconMt.png" Pack="true" PackagePath="\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Mt.Utilities" Version="6.3.0" />
+    <PackageReference Include="Mt.Utilities" Version="8.1.0" />
   </ItemGroup>
 </Project>

@@ -8,6 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{B918AB22-1
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		.test.bat = .test.bat
+		.test.sh = .test.sh
 		.version = .version
 		CHANGELOG.md = CHANGELOG.md
 		coverlet.runsettings = coverlet.runsettings

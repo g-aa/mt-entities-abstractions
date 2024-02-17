@@ -24,3 +24,4 @@ _TeamCity.*
 !.gitlab-ci.yml
 !.overrides-ci.yml
 !.test.bat
+!.test.sh
