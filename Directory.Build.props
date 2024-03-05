@@ -10,7 +10,7 @@
     <PackageProjectUrl>https://github.com/g-aa/mt-entities-abstractions</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>iconMt.png</PackageIcon>
-    <Build_Version Condition=" '$(Build_Version)' == '' ">8.0.0</Build_Version>
+    <Build_Version Condition=" '$(Build_Version)' == '' ">$([System.IO.File]::ReadAllText($(MSBuildThisFileDirectory).version).Trim())</Build_Version>
     <Build_Number Condition=" '$(Build_Number)' == '' ">$(Build_Version).0</Build_Number>
     <Version>$(Build_Version)</Version>
     <PackageVersion>$(Build_Version)</PackageVersion>
